@@ -32,57 +32,57 @@ struct DateTime {
 extern const char* monthList[];
 
 class DS1307 {
-	public:
-		/// @brief Constructor
-		/// @param addr address of RTC device 0x68(by default).
-		DS1307(uint8_t addr = RTC_I2_ADDR);
+  public:
+    /// @brief Constructor
+    /// @param addr address of RTC device 0x68(by default).
+    DS1307(uint8_t addr = RTC_I2_ADDR);
 
-		/// @brief Initialization RTC.
-		/// @return true - RTC is found.
-		/// @return false - RTC is not found.
-		bool begin(void);
+    /// @brief Initialization RTC.
+    /// @return true - RTC is found.
+    /// @return false - RTC is not found.
+    bool begin(void);
 
-		/// @brief Starting the RTC.
-		/// @details  Sets the Clock Halt Bit to 0. 
-		void start(void);
+    /// @brief Starting the RTC.
+    /// @details  Sets the Clock Halt Bit to 0. 
+    void start(void);
 
-		/// @brief Stopping the RTC.
-		/// @details Sets the Clock Halt Bit to 1.
-		void stop(void);
+    /// @brief Stopping the RTC.
+    /// @details Sets the Clock Halt Bit to 1.
+    void stop(void);
 
-		/// @brief Getting time and date in to the structure.
-		/// @return DateTime structure.
-		DateTime get(void);
+    /// @brief Getting time and date in to the structure.
+    /// @return DateTime structure.
+    DateTime get(void);
 
-		/* Get seconds */
-		uint8_t getSeconds(void);
+    /* Get seconds */
+    uint8_t getSeconds(void);
 
     /* Get minutes */
-		uint8_t getMinutes(void);
+    uint8_t getMinutes(void);
 
     /* Get hours */
-		uint8_t getHours(void);
+    uint8_t getHours(void);
 
     /* Get day of the week */
-		uint8_t getDayOfWeek(void);
+    uint8_t getDayOfWeek(void);
 
     /* Get day of month */   
-		uint8_t getDay(void);
+    uint8_t getDay(void);
 
     /* Get month */
-		uint8_t getMonth(void);
+    uint8_t getMonth(void);
 
     /* Get year in 4-digit format */
-		uint16_t getYear(void);
+    uint16_t getYear(void);
 
-		/// @brief Settting current time and date.
-		/// @param sec Seconds
-		/// @param min Minutes
-		/// @param hour Hours
-		/// @param day Day of the month.
-		/// @param month Month.
-		/// @param year Year.
-		void set(uint8_t sec, uint8_t min, uint8_t hour, 
+    /// @brief Settting current time and date.
+    /// @param sec Seconds
+    /// @param min Minutes
+    /// @param hour Hours
+    /// @param day Day of the month.
+    /// @param month Month.
+    /// @param year Year.
+    void set(uint8_t sec, uint8_t min, uint8_t hour, 
              uint8_t day, uint8_t month, uint16_t year);
 
     /* Set time and data from structure DateTime */
@@ -112,14 +112,14 @@ class DS1307 {
     /* Checking for time reset */
     bool lostPower(void);
 
-	private:
+  private:
     uint8_t compDayWeek(uint8_t day, uint8_t month, uint16_t year);
-		uint8_t readRegister(uint8_t addr, uint8_t reg);
-		void writeRegister(uint8_t addr, uint8_t reg, uint8_t val);
-		uint8_t charToInt(char* str, uint8_t index);
-		uint8_t bin2bcd(uint8_t data);
-		uint8_t bcd2bin(uint8_t data);
-		const uint8_t _addr;
+    uint8_t readRegister(uint8_t addr, uint8_t reg);
+    void writeRegister(uint8_t addr, uint8_t reg, uint8_t val);
+    uint8_t charToInt(char* str, uint8_t index);
+    uint8_t bin2bcd(uint8_t data);
+    uint8_t bcd2bin(uint8_t data);
+    const uint8_t _addr;
 };
 
 #endif /* _DS_1307_H_ */
