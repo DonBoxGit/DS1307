@@ -11,13 +11,13 @@
 
 #define RTC_I2_ADDR 0x68
 
-#define CH_BIT 			      7 	// Clock Halt: 1 - clock stop, 0 - clock works
-#define AM_PM_SET_BIT		  6 	// 1 - 12 hours mode(5 bit - AM=0/PM=1), 0(default) - 24 hours mode(5 bit = 2 tenth hours)
-#define CONTROL_REGISTER 	0x7
-#define OUT_BIT				    7
-#define SQWE_BIT			    4	  // Squawe Wawe Enable, 1 - On
-#define RS0_BIT				    0   // Rate Select 00 - 1kHz, 01 - 4.096kHz
-#define RS1_BIT				    1 	// 10 - 8.192kHz, 11 - 32.768kHz
+#define CH_BIT            7    // Clock Halt: 1 - clock stop, 0 - clock works
+#define AM_PM_SET_BIT     6    // 1 - 12 hours mode(5 bit - AM=0/PM=1), 0(default) - 24 hours mode(5 bit = 2 tenth hours)
+#define CONTROL_REGISTER  0x7
+#define OUT_BIT           7
+#define SQWE_BIT          4    // Squawe Wawe Enable, 1 - On
+#define RS0_BIT           0    // Rate Select 00 - 1kHz, 01 - 4.096kHz
+#define RS1_BIT           1    // 10 - 8.192kHz, 11 - 32.768kHz
 
 struct DateTime {
     uint8_t second; 
