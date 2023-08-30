@@ -75,13 +75,7 @@ class DS1307 {
     /* Get year in 4-digit format */
     uint16_t getYear(void);
 
-    /// @brief Settting current time and date.
-    /// @param sec Seconds
-    /// @param min Minutes
-    /// @param hour Hours
-    /// @param day Day of the month.
-    /// @param month Month.
-    /// @param year Year.
+    /// @brief Settting current time and date where day is the day of the month.
     void set(uint8_t sec, uint8_t min, uint8_t hour, 
              uint8_t day, uint8_t month, uint16_t year);
 
