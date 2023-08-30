@@ -10,10 +10,6 @@ DS1307 clock;
 clock.begin();
 clock.start();
 ```
-##### To set time and date of compilation:
-```c
-clock.setCompTime();
-```
 ##### To get data from RTC:
 ```c
 Serial.print(clock.getDayOfWeek());
@@ -37,3 +33,14 @@ char strTime[8];
 sprintf(strTime, "%d:%d:%d", dateTime.hour, dateTime.minute, dateTime.second);
 Serial.println(strTime);
 ```
+##### To set time and date of compilation:
+```c
+clock.setCompTime();
+```
+##### To set custom time and data use:
+```c
+clock.setSeconds(seconds);
+clock.setMinutes(minutes);
+clock.setHours(hours);
+```
+##### and etc.
