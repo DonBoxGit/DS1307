@@ -32,10 +32,10 @@ struct DateTime {
 extern const char* monthList[];
 
 class DS1307 {
-  public:
-    /// @brief Constructor
-    /// @param addr address of RTC device 0x68(by default).
-    DS1307(uint8_t addr = RTC_I2_ADDR);
+	public:
+		/// @brief Constructor
+		/// @param addr address of RTC device 0x68(by default).
+		DS1307(uint8_t addr = RTC_I2_ADDR);
 
     /// @brief Initialization RTC.
     /// @return true - RTC is found.
@@ -75,8 +75,8 @@ class DS1307 {
     /* Get year in 4-digit format */
     uint16_t getYear(void);
 
-    /// @brief Settting current time and date where day is the day of the month.
-    void set(uint8_t sec, uint8_t min, uint8_t hour, 
+		/// @brief Settting current time and date where the day is day of the month.
+		void set(uint8_t sec, uint8_t min, uint8_t hour, 
              uint8_t day, uint8_t month, uint16_t year);
 
     /* Set time and data from structure DateTime */
