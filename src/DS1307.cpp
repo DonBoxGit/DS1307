@@ -205,27 +205,23 @@ void DS1307::startSQW(const uint8_t mode) {
   val |= (1 << SQWE_BIT);
 
   switch (mode) {
-  /* 1 Hz mode */
-  case 1:
-    val &= ~((1 << RS0_BIT) | (1 << RS1_BIT));
-    break;
+    case 1:  /* 1 Hz mode */
+      val &= ~((1 << RS0_BIT) | (1 << RS1_BIT));
+      break;
 
-  /* 4.096 kHz mode */
-  case 2:
-    val |= (1 << RS0_BIT);
-    val &= ~(1 << RS1_BIT);
-    break;
+    case 2:  /* 4.096 kHz mode */
+      val |= (1 << RS0_BIT);
+      val &= ~(1 << RS1_BIT);
+      break;
   
-  /* 8.192 kHz mode */
-  case 3:
-    val &= ~(1 << RS0_BIT);
-    val |= (1 << RS1_BIT);
-    break;
+    case 3:  /* 8.192 kHz mode */
+      val &= ~(1 << RS0_BIT);
+      val |= (1 << RS1_BIT);
+      break;
   
-  /* 32.768 kHz mode */
-  case 4:
-    val |= (1 << RS0_BIT) | (1 << RS1_BIT);
-    break;
+    case 4:  /* 32.768 kHz mode */
+      val |= (1 << RS0_BIT) | (1 << RS1_BIT);
+      break;
   }
 
   writeRegister(_addr, CONTROL_REGISTER, val);
