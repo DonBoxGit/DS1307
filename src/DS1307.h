@@ -19,7 +19,7 @@
 #define RS0_BIT           0    // Rate Select 00 - 1kHz, 01 - 4.096kHz
 #define RS1_BIT           1    // 10 - 8.192kHz, 11 - 32.768kHz
 
-#define SQW_MODE_1_KGH        1
+#define SQW_MODE_1_GH         1
 #define SQW_MODE_4_096_KGH    2
 #define SQW_MODE_8_192_KGH    3
 #define SQW_MODE_32_768_KGH   4
@@ -109,8 +109,15 @@ class DS1307 {
 
     /* Checking for time reset */
     bool lostPower(void);
-    void startSQW(const uint8_t mode);
+
+    /* Start SQW square wave impulses in selected mode(1Hz by defalut). */
+    void startSQW(const uint8_t mode = SQW_MODE_1_GH);
+
+    /* Stop SQW square wave impulses */
     void stopSQW(void);
+
+    /// @brief Set the level on the SQWE/OUT pin.
+    /// @param state it's level on pin. `true` it's - HIGH, `false` is LOW.
     void setSQW_OUT(bool state);
 
   private:

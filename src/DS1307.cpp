@@ -192,13 +192,54 @@ uint8_t DS1307::compDayWeek(uint8_t day, uint8_t month, uint16_t year) {
   uint8_t m;  // Month according to the ancient Roman calendar
 
   if (month == 1 || month == 2) year--; // January and February refer to the previous year.
-  m = month - 2;                       // Because the ancient Roman calendar starts to March.
+  m = month - 2;                        // Because the ancient Roman calendar starts to March.
   if (m <= 0) m += 12;
   c = year / 100;
   y = year - c * 100;
   uint8_t dayOfWeek = (day + ((13 * m - 1) / 5) + y + (y / 4) + (c / 4) - (2 * c) + 777) % 7;
   return dayOfWeek;
 } 
+
+void DS1307::startSQW(const uint8_t mode) {
+  uint8_t val = readRegister(_addr, CONTROL_REGISTER);
+  val |= (1 << SQWE_BIT);
+
+  switch (mode) {
+  /* 1 Hz mode */
+  case 1:
+    val &= ~((1 << RS0_BIT) | (1 << RS1_BIT));
+    break;
+
+  /* 4.096 kHz mode */
+  case 2:
+    val |= (1 << RS0_BIT);
+    val &= ~(1 << RS1_BIT);
+    break;
+  
+  /* 8.192 kHz mode */
+  case 3:
+    val &= ~(1 << RS0_BIT);
+    val |= (1 << RS1_BIT);
+    break;
+  
+  /* 32.768 kHz mode */
+  case 4:
+    val |= (1 << RS0_BIT) | (1 << RS1_BIT);
+    break;
+  }
+
+  writeRegister(_addr, CONTROL_REGISTER, val);
+}
+
+void DS1307::stopSQW() {
+  writeRegister(_addr, CONTROL_REGISTER, 0x00);
+}
+
+void DS1307::setSQW_OUT(bool state) {
+  uint8_t val = 0x00;
+  if (state) val = (1 << OUT_BIT);
+  writeRegister(_addr, CONTROL_REGISTER, val);
+}
 
 uint8_t DS1307::bin2bcd(uint8_t data) { return (((data / 10) << 4) | (data % 10)); }
 uint8_t DS1307::bcd2bin(uint8_t data) { return ((data >> 4) * 10 + (data & 0xF)); }
