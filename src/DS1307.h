@@ -1,5 +1,5 @@
 /*
-  This is a light library to work with RTC 1307.
+  This is a light library for work with RTC 1307.
   ver. 1.0.0
   Roman Yakubovskiy
 */
@@ -79,7 +79,7 @@ class DS1307 {
     /* Get year in 4-digit format */
     uint16_t getYear(void);
 
-		/// @brief Settting current time and date where the day is day of the month.
+		/// @brief Set current time and date where the day is day of the month.
 		void set(uint8_t sec, uint8_t min, uint8_t hour, 
              uint8_t day, uint8_t month, uint16_t year);
 
@@ -117,7 +117,7 @@ class DS1307 {
     void stopSQW(void);
 
     /// @brief Set the level on the SQWE/OUT pin.
-    /// @param state it's level on pin. `true` it's - HIGH, `false` is LOW.
+    /// @param state it's level on pin, `true` it's - HIGH, `false` is LOW.
     void setSQW_OUT(bool state);
 
   private:
