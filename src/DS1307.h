@@ -19,6 +19,11 @@
 #define RS0_BIT           0    // Rate Select 00 - 1kHz, 01 - 4.096kHz
 #define RS1_BIT           1    // 10 - 8.192kHz, 11 - 32.768kHz
 
+#define SQW_MODE_1_KGH        1
+#define SQW_MODE_4_096_KGH    2
+#define SQW_MODE_8_192_KGH    3
+#define SQW_MODE_32_768_KGH   4
+
 struct DateTime {
     uint8_t second; 
     uint8_t minute;
@@ -38,12 +43,11 @@ class DS1307 {
 		DS1307(uint8_t addr = RTC_I2_ADDR);
 
     /// @brief Initialization RTC.
-    /// @return true - RTC is found.
-    /// @return false - RTC is not found.
+    /// @return `true` - RTC is found, `false` - RTC is not found.
     bool begin(void);
 
     /// @brief Starting the RTC.
-    /// @details  Sets the Clock Halt Bit to 0. 
+    /// @details Sets the Clock Halt Bit to 0. 
     void start(void);
 
     /// @brief Stopping the RTC.
@@ -105,6 +109,9 @@ class DS1307 {
 
     /* Checking for time reset */
     bool lostPower(void);
+    void startSQW(const uint8_t mode);
+    void stopSQW(void);
+    void setSQW_OUT(bool state);
 
   private:
     uint8_t compDayWeek(uint8_t day, uint8_t month, uint16_t year);
