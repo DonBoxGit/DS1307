@@ -13,6 +13,10 @@ DS1307 clock(0x68);
 clock.begin();
 clock.start();
 ```
+##### Stop the clock:
+```c
+clock.stop();
+```
 ##### Methods to get data from RTC:
 ```c
 clock.getDayOfWeek();
