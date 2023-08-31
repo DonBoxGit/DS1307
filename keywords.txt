@@ -29,3 +29,7 @@ setHours	KEYWORD2
 #######################################
 #        Constants (LITERAL1)         #
 #######################################
+SQW_MODE_1_GH		LITERAL1
+SQW_MODE_4_096_KGH	LITERAL1
+SQW_MODE_8_192_KGH	LITERAL1
+SQW_MODE_32_768_KGH	LITERAL1
