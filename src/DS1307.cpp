@@ -1,3 +1,9 @@
+/*
+  This is a light library for work with RTC 1307.
+                 ver. 1.0.0
+                            by Roman Yakubovskiy.
+*/
+
 #include "DS1307.h"
 
 const char* monthList[] = {
