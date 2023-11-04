@@ -57,8 +57,8 @@ clock.startSQW(mode);
 ```c
 clock.stopSQW();
 ```
-To set level of SQWE/OUT when the generation is off:
+##### To set level of SQWE/OUT when the generation is off:
 ```c
 clock.setSQW_OUT(level);
 ```
-##### Where `true` is HIGH and `false` is LOW level.
+###### Where `true` is HIGH and `false` is LOW level.
