@@ -3,16 +3,19 @@
 
 #include <Wire.h>
 
+/* Addresses */
 #define RTC_I2_ADDR       0x68
 #define CONTROL_REGISTER  0x7
 
+/* Description of the bits */
 #define CH_BIT            7    // Clock Halt: 1 - clock stop, 0 - clock works
 #define AM_PM_SET_BIT     6    // 1 - 12 hours mode(5 bit - AM=0/PM=1), 0(default) - 24 hours mode(5 bit = 2 tenth hours)
-#define OUT_BIT           7
+#define OUT_BIT           7    // Set the level on the SQWE/OUT pin when Squawe Wave Disable(1 - HIGH, 0 - LOW)
 #define SQWE_BIT          4    // Squawe Wawe Enable, 1 - On
 #define RS0_BIT           0    // Rate Select 00 - 1kHz, 01 - 4.096kHz
 #define RS1_BIT           1    // 10 - 8.192kHz, 11 - 32.768kHz
 
+/* SQW modes */
 #define SQW_MODE_1_GH         1
 #define SQW_MODE_4_096_KGH    2
 #define SQW_MODE_8_192_KGH    3
@@ -98,7 +101,7 @@ class DS1307 {
     /* Set month */
     void setMonth(uint8_t month);
 
-    /* Set year in 2-digit formant or 4-digit */
+    /* Set year in 2-digit or 4-digit format */
     void setYear(uint16_t year);
 
     /* Checking for time reset */
