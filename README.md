@@ -52,13 +52,13 @@ clock.setYear(year);
 ```c
 clock.startSQW(mode);
 ```
-##### Where mode is:<br>`SQW_MODE_1_GH` - 1Gh (by default)<br>`SQW_MODE_4_096_KGH` - 4.096kGh<br>`SQW_MODE_8_192_KGH` - 8.192kGh<br>`SQW_MODE_32_768_KGH` - 32.768kGh<br>accordingly.
+###### Where mode is:<br>`SQW_MODE_1_GH` - 1Gh (by default)<br>`SQW_MODE_4_096_KGH` - 4.096kGh<br>`SQW_MODE_8_192_KGH` - 8.192kGh<br>`SQW_MODE_32_768_KGH` - 32.768kGh<br>accordingly.
 ##### To stop generation of meandr:
 ```c
 clock.stopSQW();
 ```
-To set level of SQWE/OUT when the generation is off:
+##### To set level of SQWE/OUT when the generation is off:
 ```c
 clock.setSQW_OUT(level);
 ```
-##### Where `true` is HIGH and `false` is LOW level.
+###### Where `true` is HIGH and `false` is LOW level.
