@@ -239,7 +239,7 @@ void DS1307::stopSQW() {
 
 void DS1307::setSQW_OUT(bool state) {
   uint8_t val = 0x00;
-  if (state) val |= (1 << OUT_BIT);
+  (state) ? val |= (1 << OUT_BIT) : val &= ~(1 << OUT_BIT);
   writeRegister(_addr, CONTROL_REGISTER, val);
 }
 
