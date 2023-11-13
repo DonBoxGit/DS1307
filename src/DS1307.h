@@ -16,10 +16,10 @@
 #define RS1_BIT           1    // 10 - 8.192kHz, 11 - 32.768kHz
 
 /* SQW modes */
-#define SQW_MODE_1_GH         1
-#define SQW_MODE_4_096_KGH    2
-#define SQW_MODE_8_192_KGH    3
-#define SQW_MODE_32_768_KGH   4
+#define SQW_MODE_1_GH       1
+#define SQW_MODE_4096_GH    2
+#define SQW_MODE_8192_GH    3
+#define SQW_MODE_32768_GH   4
 
 struct DateTime {
     uint8_t second; 
