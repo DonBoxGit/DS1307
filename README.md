@@ -27,7 +27,7 @@ clock.getDay();
 clock.getMonth();
 clock.getYear();
 ```
-##### To get time and date data into the structur (for example):
+##### To get time and date data into the structure(dataTime) for example:
 ```c
 DateTime dateTime = clock.get();
 char strTime[8];
