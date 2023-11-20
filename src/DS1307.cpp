@@ -48,7 +48,7 @@ void DS1307::writeRegister(uint8_t addr, uint8_t reg, uint8_t val) {
   Wire.endTransmission();
 }
 
-DateTime DS1307::get() {
+DateTime DS1307::getTime() {
   DateTime dateTime;
   Wire.beginTransmission(_addr);
   Wire.write(0x00);

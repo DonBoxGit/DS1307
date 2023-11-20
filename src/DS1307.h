@@ -53,7 +53,7 @@ class DS1307 {
 
     /// @brief Getting time and date in to the structure.
     /// @return DateTime structure.
-    DateTime get(void);
+    DateTime getTime(void);
 
     /* Get seconds */
     uint8_t getSeconds(void);
