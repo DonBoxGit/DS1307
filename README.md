@@ -29,7 +29,7 @@ clock.getYear();
 ```
 ##### To get time and date data into the structure(dataTime) for example:
 ```c
-DateTime dateTime = clock.get();
+DateTime dateTime = clock.getTime();
 char strTime[8];
 sprintf(strTime, "%d:%d:%d", dateTime.hour, dateTime.minute, dateTime.second);
 Serial.println(strTime);
