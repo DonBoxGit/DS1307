@@ -93,7 +93,7 @@ uint16_t DS1307::getYear() {
   return bcd2bin(readRegister(_addr, 0x06)) + 2000U;
 }
 
-void DS1307::set(uint8_t sec, uint8_t min, uint8_t hour,
+void DS1307::setTime(uint8_t sec, uint8_t min, uint8_t hour,
                  uint8_t day, uint8_t month, uint16_t year) {
   uint8_t dayOfWeek = compDayWeek(day, month, year);
   if (year >= 2000) year -= 2000;
@@ -118,7 +118,7 @@ void DS1307::set(uint8_t sec, uint8_t min, uint8_t hour,
   Wire.endTransmission();
 }
 
-void DS1307::set(DateTime dateTime) {
+void DS1307::setTime(DateTime dateTime) {
   if (dateTime.year >= 2000) dateTime.year -= 2000;
 
   Wire.beginTransmission(_addr);

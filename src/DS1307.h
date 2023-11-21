@@ -77,11 +77,11 @@ class DS1307 {
     uint16_t getYear(void);
 
     /// @brief Set current time and date where the day is day of the month.
-    void set(uint8_t sec, uint8_t min, uint8_t hour, 
+    void setTime(uint8_t sec, uint8_t min, uint8_t hour, 
              uint8_t day, uint8_t month, uint16_t year);
 
     /* Set time and data from structure DateTime */
-    void set(DateTime dateTime);
+    void setTime(DateTime dateTime);
 
     /* Set the compilation time */
     void setCompTime(void);
