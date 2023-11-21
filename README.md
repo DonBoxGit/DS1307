@@ -40,7 +40,7 @@ clock.setCompTime();
 ```
 ##### To set custom time and date use this methods:
 ```c
-clock.set(sec, min, hour, day, month, year);
+clock.setTime(sec, min, hour, day, month, year);
 clock.setSeconds(seconds);
 clock.setMinutes(minutes);
 clock.setHours(hours);
